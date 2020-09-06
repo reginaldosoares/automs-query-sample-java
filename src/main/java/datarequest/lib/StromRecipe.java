@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Value;
 import java.io.BufferedInputStream;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.HashMap;
+import java.time.LocalDateTime;
+import java.util.LinkedHashMap;
+import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 import static java.util.Collections.unmodifiableMap;
@@ -38,9 +40,12 @@ abstract public class StromRecipe implements StromWebdriver {
         return driver;
     }
 
-    protected String asJson(String response) {
-        return gson.toJson(unmodifiableMap(new HashMap<String, String>() {{
+    protected String asJson(String queryId, String response) {
+        return gson.toJson(unmodifiableMap(new LinkedHashMap<String, String>() {{
+            put("uuid", UUID.randomUUID().toString());
+            put("queryId", queryId);
             put("response", response);
+            put("date", LocalDateTime.now().toString());
         }}));
     }
 

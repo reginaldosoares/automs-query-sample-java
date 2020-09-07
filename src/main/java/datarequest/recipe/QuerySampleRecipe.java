@@ -54,7 +54,7 @@ public class QuerySampleRecipe extends StromRecipe {
         logger.info("givenCnpj: " + givenCnpj);
         logger.info("capturedResponse: " + capturedResponse);
 
-        return asJson("equipo/sefaz-go/pendencias", capturedResponse);
+        return asJson("equipo/sefaz-geral/pendencias", capturedResponse);
     }
 
     @Override

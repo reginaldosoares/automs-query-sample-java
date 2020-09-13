@@ -13,34 +13,33 @@ import java.util.concurrent.TimeUnit;
 
 import static java.util.Collections.unmodifiableMap;
 
-abstract public class StromRecipe implements StromWebdriver, StromPdfHandler {
+abstract public class StromAutomation implements StromWebdriver, StromPdfHandler {
 
     @Value("${automs.automation.resourceId}")
     public String resourceId;
-
+    protected WebDriver driver;
     @Value("${automs.webdriver.url}")
     private String webdriverUri;
-
     @Autowired
     private Gson gson;
 
-    protected abstract String process(WebDriver driver, String... args);
+    protected abstract String recipe(String... args);
 
     protected abstract Boolean validate(@NotNull String... args);
 
-    protected abstract String targetSite();
+    protected abstract String entryPointUrl();
 
     public String run(String... args) {
-        WebDriver driver = getDriver();
-        driver.get(targetSite());
-        String processResponse = process(driver, args);
+        driver = getDriver();
+        driver.get(entryPointUrl());
+        String recipeResponse = recipe(args);
         driver.quit();
 
-        if (!validate(processResponse)) {
+        if (!validate(recipeResponse)) {
             throw new IllegalStateException("automation not successfully validated");
         }
 
-        return transform(processResponse);
+        return transform(recipeResponse);
     }
 
     protected String transform(@NotNull String... capturedResponses) {
@@ -51,7 +50,7 @@ abstract public class StromRecipe implements StromWebdriver, StromPdfHandler {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
-    protected WebDriver getDriver() {
+    private WebDriver getDriver() {
         WebDriver driver = withRemoteWebdriver(webdriverUri, prepareHeadlessBrowser());
         withDriverConfig(driver);
         return driver;

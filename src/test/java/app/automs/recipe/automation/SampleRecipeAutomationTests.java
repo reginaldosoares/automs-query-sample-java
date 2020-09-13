@@ -18,13 +18,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-public class SefazRecipeTests {
+public class SampleRecipeAutomationTests {
 
     @Autowired
     private MockMvc mvc;
 
     @MockBean
-    private SampleRecipeAutomation sampleRecipeAutomation;
+    private SampleAutomation sampleRecipeAutomation;
 
     @Test
     public void querySampleMock() throws Exception {

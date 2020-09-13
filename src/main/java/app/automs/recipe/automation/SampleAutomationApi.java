@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/automation/run/sefaz-go-pendencia")
 public class SampleAutomationApi {
     @Autowired
-    private SampleRecipeAutomation sampleRecipeAutomation;
+    private SampleAutomation sampleAutomation;
 
     @GetMapping(value = "/{cnpj}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> processAutomation(@PathVariable String cnpj) {
+    public ResponseEntity<String> runAutomation(@PathVariable String cnpj) {
         String[] args = {cnpj};
-        String response = sampleRecipeAutomation.run(args);
+        String response = sampleAutomation.run(args);
         return ResponseEntity.ok(response);
     }
 }

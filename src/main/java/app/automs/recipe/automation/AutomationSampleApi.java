@@ -1,4 +1,4 @@
-package datarequest.recipe;
+package app.automs.recipe.automation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/api/query/sefaz-go-pendencia")
-public class QuerySampleApi {
+public class AutomationSampleApi {
     @Autowired
-    QuerySampleRecipe queryRecipe;
+    private SampleRecipeAutomation sampleRecipeAutomation;
 
     @GetMapping(value = "/{cnpj}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> dataQueryRecipe(@PathVariable String cnpj) {
+    public ResponseEntity<String> processAutomation(@PathVariable String cnpj) {
         String[] args = {cnpj};
-        String response = queryRecipe.query(args);
+        String response = sampleRecipeAutomation.run(args);
         return ResponseEntity.ok(response);
     }
 }

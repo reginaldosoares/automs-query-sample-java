@@ -1,4 +1,4 @@
-package datarequest.lib;
+package app.automs.recipe.lib;
 
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.WebDriver;

@@ -1,4 +1,4 @@
-package datarequest.recipe;
+package app.automs.recipe.automation;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,11 +24,11 @@ public class SefazRecipeTests {
     private MockMvc mvc;
 
     @MockBean
-    private QuerySampleRecipe querySampleRecipe;
+    private SampleRecipeAutomation sampleRecipeAutomation;
 
     @Test
     public void querySampleMock() throws Exception {
-        Mockito.when(querySampleRecipe.query(Mockito.any()))
+        Mockito.when(sampleRecipeAutomation.process(Mockito.any()))
                 .thenReturn("{\"response\":\"Não existem pendências para 01409606000148\"}");
 
         mvc.perform(MockMvcRequestBuilders.get("/api/query/sefaz-go-pendencia/01409606000148"))

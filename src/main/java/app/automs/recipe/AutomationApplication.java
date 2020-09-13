@@ -1,4 +1,4 @@
-package datarequest;
+package app.automs.recipe;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,9 +11,9 @@ import java.util.Collections;
  * This class serves as an entry point for the Spring Boot app.
  */
 @SpringBootApplication
-public class DataRequestApplication {
+public class AutomationApplication {
 
-    private static final Logger logger = LoggerFactory.getLogger(DataRequestApplication.class);
+    private static final Logger logger = LoggerFactory.getLogger(AutomationApplication.class);
 
     public static void main(final String[] args) {
         String port = System.getenv("PORT");
@@ -21,7 +21,7 @@ public class DataRequestApplication {
             port = "8080";
             logger.warn("$PORT environment variable not set, defaulting to 8080");
         }
-        SpringApplication app = new SpringApplication(DataRequestApplication.class);
+        SpringApplication app = new SpringApplication(AutomationApplication.class);
         app.setDefaultProperties(Collections.singletonMap("server.port", port));
 
         // Start the Spring Boot application.

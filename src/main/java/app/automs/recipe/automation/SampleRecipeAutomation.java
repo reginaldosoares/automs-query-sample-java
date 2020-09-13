@@ -1,7 +1,7 @@
-package datarequest.recipe;
+package app.automs.recipe.automation;
 
 
-import datarequest.lib.StromRecipe;
+import app.automs.recipe.lib.StromRecipe;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,12 +16,12 @@ import java.util.Set;
  * Defines a automs query recipe
  */
 @Component
-public class QuerySampleRecipe extends StromRecipe {
-    private static final Logger logger = LoggerFactory.getLogger(QuerySampleRecipe.class);
+public class SampleRecipeAutomation extends StromRecipe {
+    private static final Logger logger = LoggerFactory.getLogger(SampleRecipeAutomation.class);
 
     @Override
     @NotNull
-    public String query(String... args) {
+    protected String process(String... args) {
         WebDriver driver = getDriver();
         String givenCnpj = args[0];
 
@@ -54,7 +54,14 @@ public class QuerySampleRecipe extends StromRecipe {
         logger.info("givenCnpj: " + givenCnpj);
         logger.info("capturedResponse: " + capturedResponse);
 
-        return asJson("equipo/sefaz-geral/pendencias", capturedResponse);
+        return capturedResponse;
+    }
+
+    @Override
+    @NotNull
+    protected Boolean validate(@NotNull String... args) {
+        String response = args[0];
+        return response.contains("Não existem pendências para");
     }
 
     @Override

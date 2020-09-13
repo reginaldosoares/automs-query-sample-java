@@ -19,7 +19,7 @@ RUN mvn package -DskipTests
 FROM adoptopenjdk/openjdk8:alpine-slim
 
 # Copy the jar to the production image from the builder stage.
-COPY --from=build-env /app/target/automs-query-sample-*.jar /automs-query-sample.jar
+COPY --from=build-env /app/target/automs-automation-sample-*.jar /automs-automation-sample.jar
 
 # Run the web service on container startup.
-CMD ["java", "-jar", "/automs-query-sample.jar"]
+CMD ["java", "-jar", "/automs-automation-sample.jar"]

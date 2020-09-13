@@ -21,11 +21,8 @@ public class SampleRecipeAutomation extends StromRecipe {
 
     @Override
     @NotNull
-    protected String process(String... args) {
-        WebDriver driver = getDriver();
+    protected String process(WebDriver driver, String... args) {
         String givenCnpj = args[0];
-
-        driver.get(targetSite());
 
         driver.findElement(By.id("txtId")).click();
         driver.findElement(By.id("txtId")).sendKeys(givenCnpj);
@@ -48,8 +45,6 @@ public class SampleRecipeAutomation extends StromRecipe {
             );
 
         }
-
-        driver.quit();
 
         logger.info("givenCnpj: " + givenCnpj);
         logger.info("capturedResponse: " + capturedResponse);

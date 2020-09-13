@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
  * Defines a controller to handle HTTP requests
  */
 @RestController
-@RequestMapping("/api/query/sefaz-go-pendencia")
-public class AutomationSampleApi {
+@RequestMapping("/api/automation/run/sefaz-go-pendencia")
+public class SampleAutomationApi {
     @Autowired
     private SampleRecipeAutomation sampleRecipeAutomation;
 

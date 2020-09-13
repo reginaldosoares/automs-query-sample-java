@@ -24,14 +24,17 @@ abstract public class StromRecipe implements StromWebdriver, StromPdfHandler {
     @Autowired
     private Gson gson;
 
-    protected abstract String process(String... args);
+    protected abstract String process(WebDriver driver, String... args);
 
     protected abstract Boolean validate(@NotNull String... args);
 
     protected abstract String targetSite();
 
     public String run(String... args) {
-        String processResponse = process(args);
+        WebDriver driver = getDriver();
+        driver.get(targetSite());
+        String processResponse = process(driver, args);
+        driver.quit();
 
         if (!validate(processResponse)) {
             throw new IllegalStateException("automation not successfully validated");

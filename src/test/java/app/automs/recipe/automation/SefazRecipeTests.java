@@ -31,7 +31,7 @@ public class SefazRecipeTests {
         Mockito.when(sampleRecipeAutomation.run(Mockito.any()))
                 .thenReturn("{\"response\":\"Não existem pendências para 01409606000148\"}");
 
-        mvc.perform(MockMvcRequestBuilders.get("/api/query/sefaz-go-pendencia/01409606000148"))
+        mvc.perform(MockMvcRequestBuilders.get("/api/automation/run/sefaz-go-pendencia/01409606000148"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(content().json("{\"response\":\"Não existem pendências para 01409606000148\"}"));

@@ -1,4 +1,4 @@
-package app.automs.recipe.lib;
+package app.automs.internal;
 
 import com.google.gson.Gson;
 import org.jetbrains.annotations.NotNull;

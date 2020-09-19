@@ -1,4 +1,4 @@
-package app.automs.recipe.automation;
+package app.automs.automation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

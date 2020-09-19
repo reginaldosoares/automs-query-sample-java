@@ -1,7 +1,7 @@
-package app.automs.recipe.automation;
+package app.automs.automation;
 
 
-import app.automs.recipe.lib.StromAutomation;
+import app.automs.internal.StromAutomation;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;

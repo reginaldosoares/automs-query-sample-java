@@ -1,4 +1,4 @@
-package app.automs.recipe.lib;
+package app.automs.internal;
 
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.WebDriver;

@@ -1,4 +1,4 @@
-package app.automs.recipe.automation;
+package app.automs.automation;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;

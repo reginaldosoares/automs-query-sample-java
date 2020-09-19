@@ -1,4 +1,4 @@
-package app.automs.recipe;
+package app.automs;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

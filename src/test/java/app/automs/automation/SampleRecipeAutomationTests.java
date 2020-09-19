@@ -1,4 +1,4 @@
-package app.automs.recipe.automation;
+package app.automs.automation;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

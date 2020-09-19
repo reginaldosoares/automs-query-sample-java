@@ -1,4 +1,4 @@
-package app.automs.recipe.lib;
+package app.automs.internal;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;

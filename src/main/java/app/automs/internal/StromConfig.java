@@ -1,9 +1,7 @@
-package app.automs.recipe.lib;
+package app.automs.internal;
 
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class StromConfig {
-
-
 }
